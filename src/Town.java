@@ -125,16 +125,18 @@ public class Town {
      */
     private Terrain getNewTerrain() {
         double rnd = Math.random();
-        if (rnd < .2) {
+        if (rnd < (1/6)) {
             return new Terrain(Colors.CYAN + "Mountains" + Colors.RESET, "Rope");
-        } else if (rnd < .4) {
+        } else if (rnd < (1/3)) {
             return new Terrain(Colors.CYAN + "Ocean" + Colors.RESET, "Boat");
-        } else if (rnd < .6) {
+        } else if (rnd < (1/2)) {
             return new Terrain(Colors.CYAN + "Plains" + Colors.RESET, "Horse");
-        } else if (rnd < .8) {
+        } else if (rnd < (2/3)) {
             return new Terrain(Colors.CYAN + "Desert" + Colors.RESET, "Water");
-        } else {
+        } else if (rnd < (5/6)){
             return new Terrain(Colors.CYAN + "Jungle" + Colors.RESET, "Machete");
+        } else{
+            return new Terrain(Colors.CYAN + "Marsh" + Colors.RESET, "Boots");
         }
     }
 
