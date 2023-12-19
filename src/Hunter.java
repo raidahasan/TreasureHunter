@@ -98,7 +98,7 @@ public class Hunter {
     private boolean addItem(String item) {
         if (!hasItemInKit(item)) {
             int idx = emptyPositionInKit();
-            kit[idx] = item;
+            kit[idx] = Colors.PURPLE + item + Colors.RESET;
             return true;
         }
 
@@ -135,6 +135,8 @@ public class Hunter {
         for (String item : kit) {
             if (item != null) {
                 printableKit += item + space;
+            }else{
+                printableKit += "";
             }
         }
 
@@ -145,7 +147,7 @@ public class Hunter {
      * @return A string representation of the hunter.
      */
     public String toString() {
-        String str = hunterName + " has " + gold + " gold";
+        String str = hunterName + " has " + Colors.YELLOW + gold + " gold" + Colors.RESET;
         if (!kitIsEmpty()) {
             str += " and " + getInventory();
         }
