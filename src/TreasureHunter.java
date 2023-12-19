@@ -16,9 +16,10 @@ public class TreasureHunter {
     private Town currentTown;
     private Hunter hunter;
     private boolean hardMode;
-    private int gold;
-    private boolean testMode;
 
+    private static boolean notOver = true;
+
+    private boolean testMode=false;
     /**
      * Constructs the Treasure Hunter game.
      */
@@ -31,6 +32,13 @@ public class TreasureHunter {
 
     }
 
+    public static boolean notOver(){
+        return notOver;
+    }
+    public static boolean setNotOverToFalse(){
+        notOver=false;
+        return false;
+    }
     /**
      * Starts the game; this is the only public method
      */
@@ -49,25 +57,13 @@ public class TreasureHunter {
         System.out.print("What's your name, Hunter? ");
         String name = SCANNER.nextLine().toLowerCase();
 
+        // set hunter instance variable
+        hunter = new Hunter(name, 10);
 
         System.out.print("Do you want hard mode? (y/n): ");
         String hard = SCANNER.nextLine().toLowerCase();
-        gold = 10;
         if (hard.equals("y")) {
             hardMode = true;
-        } if (hard.equals("test")){
-            gold = 100;
-            testMode = true;
-        }
-        // set hunter instance variable
-        hunter = new Hunter(name, gold);
-        if (testMode){
-            hunter.buyItem("water", 0);
-            hunter.buyItem("rope", 0);
-            hunter.buyItem("machete", 0);
-            hunter.buyItem("boat", 0);
-            hunter.buyItem("horse", 0);
-            hunter.buyItem("boots", 0);
         }
     }
 
