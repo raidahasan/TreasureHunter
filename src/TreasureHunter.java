@@ -16,6 +16,7 @@ public class TreasureHunter {
     private Town currentTown;
     private Hunter hunter;
     private boolean hardMode;
+    private static boolean notOver = true;
     private int gold;
     private boolean testMode;
 
@@ -29,6 +30,11 @@ public class TreasureHunter {
         hardMode = false;
         testMode = false;
 
+    }
+
+    public static boolean setNotOverToFalse(){
+        notOver=false;
+        return false;
     }
 
     /**
@@ -48,7 +54,6 @@ public class TreasureHunter {
         System.out.println("Going hunting for the big treasure, eh?");
         System.out.print("What's your name, Hunter? ");
         String name = SCANNER.nextLine().toLowerCase();
-
 
         System.out.print("Do you want hard mode? (y/n): ");
         String hard = SCANNER.nextLine().toLowerCase();
