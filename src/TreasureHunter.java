@@ -16,6 +16,7 @@ public class TreasureHunter {
     private Town currentTown;
     private Hunter hunter;
     private boolean hardMode;
+    private static boolean notOver = true;
 
     /**
      * Constructs the Treasure Hunter game.
@@ -27,13 +28,24 @@ public class TreasureHunter {
         hardMode = false;
     }
 
+    public static boolean notOver(){
+        return notOver;
+    }
+    public static boolean setNotOverToFalse(){
+        notOver=false;
+        return false;
+    }
     /**
      * Starts the game; this is the only public method
      */
     public void play() {
-        welcomePlayer();
-        enterTown();
-        showMenu();
+        notOver=true;
+        while(notOver) {
+            welcomePlayer();
+            enterTown();
+            showMenu();
+            System.out.println("G A M E  O V E R");
+        }
     }
 
     /**
@@ -94,7 +106,7 @@ public class TreasureHunter {
     private void showMenu() {
         String choice = "";
 
-        while (!choice.equals("x")) {
+        while (!choice.equals("x")&&notOver==true) {
             System.out.println();
             System.out.println(currentTown.getLatestNews());
             System.out.println("***");
