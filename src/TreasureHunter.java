@@ -67,12 +67,13 @@ public class TreasureHunter {
         // set hunter instance variable
         hunter = new Hunter(name, gold);
         if (testMode){
-            hunter.buyItem("water", 0);
-            hunter.buyItem("rope", 0);
-            hunter.buyItem("machete", 0);
-            hunter.buyItem("boat", 0);
-            hunter.buyItem("horse", 0);
-            hunter.buyItem("boots", 0);
+            hunter.buyItem("water", 1);
+            hunter.buyItem("rope", 1);
+            hunter.buyItem("machete", 1);
+            hunter.buyItem("boat", 1);
+            hunter.buyItem("horse", 1);
+            hunter.buyItem("boots", 1);
+            hunter.changeGold(6);
         }
     }
 
