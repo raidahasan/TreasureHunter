@@ -91,7 +91,7 @@ public class Town {
     public void lookForTrouble() {
         double noTroubleChance;
         if (toughTown) {
-            noTroubleChance = 0.66;
+            noTroubleChance = 0.88;
         } else {
             noTroubleChance = 0.33;
         }
@@ -130,7 +130,7 @@ public class Town {
             return new Terrain(Colors.CYAN + "Ocean" + Colors.RESET, "Boat");
         } else if (rnd < (1/2)) {
             return new Terrain(Colors.CYAN + "Plains" + Colors.RESET, "Horse");
-        } else if (rnd < (2/6)) {
+        } else if (rnd < (2/3)) {
             return new Terrain(Colors.CYAN + "Desert" + Colors.RESET, "Water");
         } else if (rnd < (5/6)){
             return new Terrain(Colors.CYAN + "Jungle" + Colors.RESET, "Machete");
