@@ -17,6 +17,9 @@ public class TreasureHunter {
     private Hunter hunter;
     private boolean hardMode;
 
+    private static boolean notOver = true;
+
+    private boolean testMode=false;
     /**
      * Constructs the Treasure Hunter game.
      */
