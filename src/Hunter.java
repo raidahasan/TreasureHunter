@@ -20,6 +20,7 @@ public class Hunter {
         this.hunterName = hunterName;
         kit = new String[6]; // only 6 possible items can be stored in kit
         gold = startingGold;
+
     }
 
     //Accessors
@@ -140,7 +141,12 @@ public class Hunter {
                 printableKit += "";
             }
         }
-
+        printableKit += "\nTreasures Found: ";
+        for(String t : Town.getTreasures()){
+            if(t != null) {
+                printableKit += t + " ";
+            }
+        }
         return printableKit;
     }
 
