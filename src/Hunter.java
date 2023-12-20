@@ -50,11 +50,11 @@ public class Hunter {
     public boolean buyItem(String item, int costOfItem) {
         if (costOfItem == 0 || gold < costOfItem || hasItemInKit(item)) {
             return false;
+        }else{
+            gold -= costOfItem;
+            addItem(item);
+            return true;
         }
-
-        gold -= costOfItem;
-        addItem(item);
-        return true;
     }
 
     /**
@@ -99,7 +99,7 @@ public class Hunter {
     private boolean addItem(String item) {
         if (!hasItemInKit(item)) {
             int idx = emptyPositionInKit();
-            kit[idx] = Colors.PURPLE + item + Colors.RESET;
+            kit[idx] =item;
             return true;
         }
 
@@ -135,7 +135,7 @@ public class Hunter {
 
         for (String item : kit) {
             if (item != null) {
-                printableKit += item + space;
+                printableKit += Colors.PURPLE + item + space + Colors.RESET;
             }else{
                 printableKit += "";
             }

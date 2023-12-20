@@ -88,10 +88,10 @@ public class Town {
             }
 
             return true;
+        }else {
+            printMessage = "You can't leave town, " + hunter.getHunterName() + ". You don't have a " + terrain.getNeededItem() + ".";
+            return false;
         }
-
-        printMessage = "You can't leave town, " + hunter.getHunterName() + ". You don't have a " + terrain.getNeededItem() + ".";
-        return false;
     }
 
     /**
