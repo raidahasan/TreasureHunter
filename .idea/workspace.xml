@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fcb7b4d-7ba4-4844-a8e1-e8c6f8fed5a4" name="Changes" comment="brought back missing code">
-      <change beforePath="$PROJECT_DIR$/src/Town.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Town.java" afterDir="false" />
+    <list default="true" id="3fcb7b4d-7ba4-4844-a8e1-e8c6f8fed5a4" name="Changes" comment="fixed terrain">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TreasureHunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TreasureHunter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +69,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703001250355</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fixed terrain">
+      <created>1703084130153</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1703084130153</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -84,6 +93,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="TH-3 COMPLETE" />
     <MESSAGE value="brought back missing code" />
-    <option name="LAST_COMMIT_MESSAGE" value="brought back missing code" />
+    <MESSAGE value="fixed terrain" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed terrain" />
   </component>
 </project>

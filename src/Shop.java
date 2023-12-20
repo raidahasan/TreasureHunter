@@ -154,7 +154,7 @@ public class Shop {
         } else if (item.equals("boat")) {
             return BOAT_COST;
         }else if (item.equals("boots")) {
-                return BOOTS_COST;
+            return BOOTS_COST;
         } else {
             return 0;
         }
