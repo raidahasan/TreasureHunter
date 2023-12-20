@@ -11,6 +11,10 @@ public class Town {
     private Terrain terrain;
     private String printMessage;
     private boolean toughTown;
+    private String treasure = "";
+    private int i = 0;
+    private String[] treasures = new String[3];
+    private boolean searched = false;
 
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
@@ -30,6 +34,8 @@ public class Town {
 
         // higher toughness = more likely to be a tough town
         toughTown = (Math.random() < toughness);
+        treasures = new String[3];
+        treasure = treasure();
     }
 
     public String getLatestNews() {
@@ -50,6 +56,20 @@ public class Town {
         } else {
             printMessage += "\nWe're just a sleepy little town with mild mannered folk.";
         }
+    }
+    public String treasure(){
+        String treasure = "";
+        int ran = (int) (Math.random()*6)+1;
+        if(ran==1){
+            treasure = "a crown";
+        }else if(ran==2){
+            treasure = "a trophy";
+        }else if(ran ==3){
+            treasure = "a gem";
+        }else{
+            treasure = "dust";
+        }
+        return treasure;
     }
 
     /**
@@ -81,6 +101,33 @@ public class Town {
      */
     public void enterShop(String choice) {
         shop.enter(hunter, choice);
+    }
+
+    public void huntForTreasure() {
+        if(!searched) {
+            boolean found = false;
+            for (String s : treasures) {
+                if (s != null && s.equals(treasure)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (found) {
+                System.out.println("You already have that");
+            }else if (treasure.equals("dust")){
+                System.out.println("You found dust :(");
+            } else {
+                System.out.println("You found " + treasure + "!");
+                treasures[i] = treasure;
+                i++;
+            }
+            searched = true;
+            for(String s:treasures){
+                System.out.println(s);
+            }
+        }else{
+            System.out.println("This town has already been searched.");
+        }
     }
 
     /**
