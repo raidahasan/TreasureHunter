@@ -39,6 +39,7 @@ public class TreasureHunter {
     public void play() {
         welcomePlayer();
         enterTown();
+        currentTown.resetTreasures();
         showMenu();
     }
 

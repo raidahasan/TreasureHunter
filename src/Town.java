@@ -13,7 +13,7 @@ public class Town {
     private boolean toughTown;
     private String treasure = "";
     private int i = 0;
-    private String[] treasures = new String[3];
+    private static String[] treasures = new String[3];
     private boolean searched = false;
 
     /**
@@ -34,12 +34,15 @@ public class Town {
 
         // higher toughness = more likely to be a tough town
         toughTown = (Math.random() < toughness);
-        treasures = new String[3];
         treasure = treasure();
     }
 
     public String getLatestNews() {
         return printMessage;
+    }
+    public static String[] getTreasures(){return treasures;}
+    public void resetTreasures(){
+        treasures = new String[3];
     }
 
     /**
@@ -118,13 +121,14 @@ public class Town {
                 System.out.println("You found dust :(");
             } else {
                 System.out.println("You found " + treasure + "!");
-                treasures[i] = treasure;
-                i++;
+                for (int i = 0; i < treasures.length; i++) {
+                    if (treasures[i] == null) {
+                        treasures[i]=treasure;
+                        break;
+                    }
+                }
             }
             searched = true;
-            for(String s:treasures){
-                System.out.println(s);
-            }
         }else{
             System.out.println("This town has already been searched.");
         }

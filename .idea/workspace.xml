@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fcb7b4d-7ba4-4844-a8e1-e8c6f8fed5a4" name="Changes" comment="fixed hardmode">
+    <list default="true" id="3fcb7b4d-7ba4-4844-a8e1-e8c6f8fed5a4" name="Changes" comment="fixed terrain + need to fix colors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hunter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Town.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Town.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TreasureHunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TreasureHunter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,21 +84,7 @@
       <option name="project" value="LOCAL" />
       <updated>1703085882338</updated>
     </task>
-    <task id="LOCAL-00006" summary="fixed hardmode">
-      <created>1703086231304</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1703086231304</updated>
-    </task>
-    <task id="LOCAL-00007" summary="fixed hardmode">
-      <created>1703086257788</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1703086257788</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,7 +103,6 @@
     <MESSAGE value="brought back missing code" />
     <MESSAGE value="fixed terrain" />
     <MESSAGE value="fixed terrain + need to fix colors" />
-    <MESSAGE value="fixed hardmode" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed hardmode" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed terrain + need to fix colors" />
   </component>
 </project>
