@@ -15,6 +15,7 @@ public class Town {
     private int i = 0;
     private static String[] treasures = new String[3];
     private boolean searched = false;
+    private String mode;
 
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
@@ -22,7 +23,7 @@ public class Town {
      * @param shop The town's shoppe.
      * @param toughness The surrounding terrain.
      */
-    public Town(Shop shop, double toughness) {
+    public Town(Shop shop, double toughness, String mode) {
         this.shop = shop;
         this.terrain = getNewTerrain();
 
@@ -34,6 +35,7 @@ public class Town {
         toughTown = (Math.random() < toughness);
         treasure = treasure();
         searched = false;
+        this.mode = mode;
     }
 
     public String getLatestNews() {
@@ -84,9 +86,9 @@ public class Town {
         if (canLeaveTown) {
             String item = terrain.getNeededItem();
             printMessage = "You used your " + item + " to cross the " + terrain.getTerrainName() + ".";
-            if (checkItemBreak()) {
+            if (checkItemBreak() && !mode.equals("easy")) {
                 hunter.removeItemFromKit(item);
-                printMessage += "\nUnfortunately, you lost you " + item + ".";
+                printMessage += "\nUnfortunately, you lost your " + item + ".";
             }
 
             return true;
@@ -144,16 +146,18 @@ public class Town {
      */
     public void lookForTrouble() {
         double noTroubleChance;
-        if (toughTown) {
+        if (toughTown && mode.equals("hard")) {
             noTroubleChance = 0.88;
-        } else {
+        } else if (!toughTown && mode.equals("easy")){
+            noTroubleChance = 0.16;
+        }else {
             noTroubleChance = 0.33;
         }
 
         if (Math.random() > noTroubleChance) {
             printMessage = "You couldn't find any trouble";
         } else {
-            printMessage = "You want trouble, stranger!  You got it!\n" + Colors.RED + "Oof! Umph! Ow!\n" + Colors.RESET;
+            printMessage = "You want trouble, stranger! You got it!\n" + Colors.RED + "Oof! Umph! Ow!\n" + Colors.RESET;
             int goldDiff = (int) (Math.random() * 10) + 1;
             if (Math.random() > noTroubleChance) {
                 printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold.";
