@@ -142,10 +142,16 @@ public class Hunter {
             }
         }
         printableKit += "\nTreasures Found: ";
+        int i = 0;
         for(String t : Town.getTreasures()){
             if(t != null) {
                 printableKit += t + " ";
+            }else{
+                i++;
             }
+        }
+        if(i==3){
+            printableKit += "none";
         }
         return printableKit;
     }
