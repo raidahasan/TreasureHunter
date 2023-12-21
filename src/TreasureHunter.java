@@ -26,6 +26,7 @@ public class TreasureHunter {
         currentTown = null;
         hunter = null;
         hardMode = false;
+        notOver = true;
 
     }
 
@@ -37,10 +38,10 @@ public class TreasureHunter {
      * Starts the game; this is the only public method
      */
     public void play() {
-        welcomePlayer();
-        enterTown();
-        currentTown.resetTreasures();
-        showMenu();
+            welcomePlayer();
+            enterTown();
+            currentTown.resetTreasures();
+            showMenu();
     }
 
     /**
@@ -113,7 +114,7 @@ public class TreasureHunter {
     private void showMenu() {
         String choice = "";
 
-        while (!choice.equals("x")) {
+        while (!choice.equals("x") && notOver) {
             System.out.println();
             System.out.println(currentTown.getLatestNews());
             System.out.println("***");
@@ -129,6 +130,11 @@ public class TreasureHunter {
             System.out.print("What's your next move? ");
             choice = SCANNER.nextLine().toLowerCase();
             processChoice(choice);
+        }
+        if (hunter.lose()) {
+            System.out.println("G A M E  O V E R - YOU LOSE ");
+        } else {
+            System.out.println("G A M E  O V E R - YOU WIN!!!! ");
         }
     }
 

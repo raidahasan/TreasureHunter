@@ -29,12 +29,11 @@ public class Town {
         // the hunter gets set using the hunterArrives method, which
         // gets called from a client class
         hunter = null;
-
         printMessage = "";
-
         // higher toughness = more likely to be a tough town
         toughTown = (Math.random() < toughness);
         treasure = treasure();
+        searched = false;
     }
 
     public String getLatestNews() {
@@ -62,12 +61,12 @@ public class Town {
     }
     public String treasure(){
         String treasure = "";
-        int ran = (int) (Math.random()*6)+1;
+        int ran = (int) (Math.random()*4)+1;
         if(ran==1){
             treasure = "a crown";
-        }else if(ran==2){
+        }else if(ran == 2){
             treasure = "a trophy";
-        }else if(ran ==3){
+        }else if(ran == 3){
             treasure = "a gem";
         }else{
             treasure = "dust";
@@ -127,6 +126,9 @@ public class Town {
                         break;
                     }
                 }
+                if(treasures[2]!=null){
+                    TreasureHunter.setNotOverToFalse();
+                }
             }
             searched = true;
         }else{
@@ -162,6 +164,8 @@ public class Town {
                 hunter.changeGold(-goldDiff);
             }
         }
+        System.out.println(printMessage);
+        printMessage = "";
     }
 
     public String toString() {

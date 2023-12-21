@@ -9,6 +9,7 @@ public class Hunter {
     private String hunterName;
     private String[] kit;
     private int gold;
+    private boolean lose = false;
 
     /**
      * The base constructor of a Hunter assigns the name to the hunter and an empty kit.
@@ -28,6 +29,9 @@ public class Hunter {
         return hunterName;
     }
 
+    public boolean lose(){
+        return lose;
+    }
     /**
      * Updates the amount of gold the hunter has.
      *
@@ -37,6 +41,7 @@ public class Hunter {
         gold += modifier;
         if (gold < 0) {
             gold = 0;
+            lose = true;
             TreasureHunter.setNotOverToFalse();
         }
     }
@@ -152,6 +157,9 @@ public class Hunter {
         }
         if(i==3){
             printableKit += "none";
+        }else if(i==0){
+            TreasureHunter.setNotOverToFalse();
+            lose = false;
         }
         return printableKit;
     }
