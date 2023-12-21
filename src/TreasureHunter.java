@@ -59,13 +59,14 @@ public class TreasureHunter {
         System.out.print("Do you want hard mode? (y/n): ");
         String hard = SCANNER.nextLine().toLowerCase();
         if (hard.equals("test")){
-            hunter = new Hunter(name, 159);
+            hunter = new Hunter(name, 167);
             hunter.buyItem("water", 2);
             hunter.buyItem("rope", 4);
             hunter.buyItem("machete", 6);
             hunter.buyItem("boat", 12);
             hunter.buyItem("horse", 20);
             hunter.buyItem("boots", 15);
+            hunter.buyItem("shovel", 8);
         } else if (hard.equals("y")) {
             hardMode = true;
         } else if (hard.equals("y")) {
@@ -125,13 +126,14 @@ public class TreasureHunter {
             System.out.println("(M)ove on to a different town.");
             System.out.println("(L)ook for trouble!");
             System.out.println("(H)unt for treasure!");
+            System.out.println("(D)ig for gold!");
             System.out.println("Give up the hunt and e(X)it.");
             System.out.println();
             System.out.print("What's your next move? ");
             choice = SCANNER.nextLine().toLowerCase();
             processChoice(choice);
         }
-        if (hunter.lose()) {
+        if (hunter.lose()||choice.equals("x")) {
             System.out.println("G A M E  O V E R - YOU LOSE ");
         } else {
             System.out.println("G A M E  O V E R - YOU WIN!!!! ");
@@ -155,6 +157,8 @@ public class TreasureHunter {
             currentTown.lookForTrouble();
         } else if (choice.equals("h")) {
             currentTown.huntForTreasure();
+        } else if (choice.equals("d")) {
+            currentTown.digForTreasure();
         } else if (choice.equals("x")) {
             System.out.println("Fare thee well, " + hunter.getHunterName() + "!");
         } else {
