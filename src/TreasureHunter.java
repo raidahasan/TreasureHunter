@@ -60,7 +60,7 @@ public class TreasureHunter {
         hunter = new Hunter(name, 10);
 
         System.out.print("What mode do you want? (e/n/h): ");
-        String hard = SCANNER.nextLine().toLowerCase();
+        String mode = SCANNER.nextLine().toLowerCase();
         if (mode.equals("test")){
             hunter = new Hunter(name, 167);
             hunter.buyItem("water", 2);
