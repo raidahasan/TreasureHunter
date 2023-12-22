@@ -174,7 +174,7 @@ public class Town {
         }
 
         if(TreasureHunter.secretMode() && hunter.hasItemInKit("sword")){
-            printMessage = "The brawler sees your sword, drops his wallet and runs";
+            printMessage = Colors.BLACK + "The brawler sees your sword, drops his wallet and runs" + Colors.RESET;
         }else if (Math.random() > noTroubleChance) {
             printMessage = "You couldn't find any trouble";
         } else {
