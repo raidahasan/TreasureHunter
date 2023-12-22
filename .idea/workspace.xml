@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fcb7b4d-7ba4-4844-a8e1-e8c6f8fed5a4" name="Changes" comment="fixed terrain + need to fix colors">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_20_2023_8_32_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_20_2023_8_32_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="3fcb7b4d-7ba4-4844-a8e1-e8c6f8fed5a4" name="Changes" comment="fixed print errors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Terrain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Town.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Town.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703085882338</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixed print errors">
+      <created>1703257862459</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1703257862459</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -103,6 +108,7 @@
     <MESSAGE value="brought back missing code" />
     <MESSAGE value="fixed terrain" />
     <MESSAGE value="fixed terrain + need to fix colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed terrain + need to fix colors" />
+    <MESSAGE value="fixed print errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed print errors" />
   </component>
 </project>

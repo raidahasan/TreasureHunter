@@ -63,6 +63,7 @@ public class Town {
         } else {
             printMessage += "\nWe're just a sleepy little town with mild mannered folk.";
         }
+        printMessage += "\n";
     }
     public String treasure(){
         String treasure = "";
@@ -110,7 +111,8 @@ public class Town {
      */
     public void enterShop(String choice) {
         shop.enter(hunter, choice);
-        printMessage = "You left the shop";
+        System.out.println("You left the shop");
+        printMessage = "";
     }
 
     public void digForTreasure(){
@@ -176,7 +178,7 @@ public class Town {
         }
 
         if(TreasureHunter.secretMode() && hunter.hasItemInKit("sword")){
-            printMessage = "The brawler sees your sword, drops his wallet and runs";
+            printMessage = Colors.BLACK + "The brawler sees your sword, drops his wallet and runs" + Colors.RESET;
         }else if (Math.random() > noTroubleChance) {
             printMessage = "You couldn't find any trouble";
         } else {
