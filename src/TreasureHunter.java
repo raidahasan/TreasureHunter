@@ -134,7 +134,6 @@ public class TreasureHunter {
         String choice = "";
 
         while (!choice.equals("x") && notOver) {
-            System.out.println();
             System.out.println(currentTown.getLatestNews());
             System.out.println("***");
             System.out.println(hunter);

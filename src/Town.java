@@ -61,6 +61,7 @@ public class Town {
         } else {
             printMessage += "\nWe're just a sleepy little town with mild mannered folk.";
         }
+        printMessage += "\n";
     }
     public String treasure(){
         String treasure = "";
@@ -106,7 +107,8 @@ public class Town {
      */
     public void enterShop(String choice) {
         shop.enter(hunter, choice);
-        printMessage = "You left the shop";
+        System.out.println("You left the shop");
+        printMessage = "";
     }
 
     public void digForTreasure(){
