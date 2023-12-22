@@ -16,7 +16,7 @@ public class Town {
     private boolean searched;
     private boolean dug;
     private String mode;
-
+    private static boolean jungle;
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
      *
@@ -25,6 +25,7 @@ public class Town {
      */
     public Town(Shop shop, double toughness, String mode) {
         this.shop = shop;
+        jungle = false;
         this.terrain = getNewTerrain();
 
         // the hunter gets set using the hunterArrives method, which
@@ -43,6 +44,7 @@ public class Town {
         return printMessage;
     }
     public static String[] getTreasures(){return treasures;}
+    public static boolean getJungle(){return jungle;}
     public void resetTreasures(){
         treasures = new String[3];
     }
@@ -84,19 +86,21 @@ public class Town {
      */
     public boolean leaveTown() {
         boolean canLeaveTown = terrain.canCrossTerrain(hunter);
-        if (canLeaveTown) {
+        if(hunter.hasItemInKit("sword") && canLeaveTown && jungle){
+            printMessage = "You used your sword to cross the " + terrain.getTerrainName() + ".";
+        }else if (canLeaveTown) {
             String item = terrain.getNeededItem();
             printMessage = "You used your " + item + " to cross the " + terrain.getTerrainName() + ".";
             if (checkItemBreak() && !mode.equals("easy")) {
                 hunter.removeItemFromKit(item);
                 printMessage += "\nUnfortunately, you lost your " + item + ".";
-            }
-
+        }
             return true;
         }else {
             printMessage = "You can't leave town, " + hunter.getHunterName() + ". You don't have a " + terrain.getNeededItem() + ".";
             return false;
         }
+        return canLeaveTown;
     }
 
     /**
@@ -212,6 +216,7 @@ public class Town {
         } else if (rnd < (2.0/3)) {
             return new Terrain(Colors.CYAN + "Desert" + Colors.RESET, "Water");
         } else if (rnd < (5.0/6)){
+            jungle = true;
             return new Terrain(Colors.CYAN + "Jungle" + Colors.RESET, "Machete");
         } else{
             return new Terrain(Colors.CYAN + "Marsh" + Colors.RESET, "Boots");
