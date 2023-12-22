@@ -19,7 +19,8 @@ public class TreasureHunter {
     private boolean easyMode;
     private String mode;
     private static boolean notOver = true;
-
+    private static boolean secretMode;
+    private static Hunter hunterRecord;
     /**
      * Constructs the Treasure Hunter game.
      */
@@ -31,10 +32,16 @@ public class TreasureHunter {
         notOver = true;
         easyMode = false;
         mode = "normal";
+        secretMode = false;
     }
-
+    public static boolean secretMode(){
+        return secretMode;
+    }
     public static void setNotOverToFalse(){
         notOver=false;
+    }
+    public static Hunter getHunter(){
+        return hunterRecord;
     }
 
     /**
@@ -42,6 +49,7 @@ public class TreasureHunter {
      */
     public void play() {
             welcomePlayer();
+            hunterRecord=hunter;
             enterTown();
             currentTown.resetTreasures();
             showMenu();
@@ -56,9 +64,6 @@ public class TreasureHunter {
         System.out.print("What's your name, Hunter? ");
         String name = SCANNER.nextLine().toLowerCase();
 
-        // set hunter instance variable
-        hunter = new Hunter(name, 10);
-
         System.out.print("What mode do you want? (e/n/h): ");
         String mode = SCANNER.nextLine().toLowerCase();
         if (mode.equals("test")){
@@ -72,11 +77,16 @@ public class TreasureHunter {
             hunter.buyItem("shovel", 8);
         } else if (mode.equals("h")) {
             hardMode = true;
+            hunter = new Hunter(name, 10);
+        } else if (mode.equals("s")) {
+            secretMode = true;
+            hunter = new Hunter(name, 10);
         } else if (mode.equals("e")) {
             easyMode = true;
             hunter = new Hunter(name, 20);
         } else{
             System.out.print("");
+            hunter = new Hunter(name, 10);
         }
     }
 

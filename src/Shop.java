@@ -15,6 +15,8 @@ public class Shop {
     private static final int BOAT_COST = 20;
     private static final int BOOTS_COST = 15;
     private static final int SHOVEL_COST = 8;
+    private static final int SWORD_COST = 0;
+
 
 
     // static variables
@@ -50,7 +52,7 @@ public class Shop {
             System.out.print("What're you lookin' to buy? ");
             String item = SCANNER.nextLine().toLowerCase();
             int cost = checkMarketPrice(item, true);
-            if (cost == 0) {
+            if (cost == 0 && !TreasureHunter.secretMode()) {
                 System.out.println("We ain't got none of those.");
             } else {
                 System.out.print("It'll cost you " + cost + " gold. Buy it (y/n)? ");
@@ -85,13 +87,25 @@ public class Shop {
      * @return the string representing the shop's items available for purchase and their prices.
      */
     public String inventory() {
-        String str = "Water: " + WATER_COST + " gold\n";
-        str += "Rope: " + ROPE_COST + " gold\n";
-        str += "Machete: " + MACHETE_COST + " gold\n";
-        str += "Horse: " + HORSE_COST + " gold\n";
-        str += "Boat: " + BOAT_COST + " gold\n";
-        str += "Boots: " + BOOTS_COST + " gold\n";
-        str += "Shovel: " + SHOVEL_COST + " gold\n";
+        String str = "";
+        if(TreasureHunter.secretMode()){
+            str = "Water: " + WATER_COST + " gold\n";
+            str += "Rope: " + ROPE_COST + " gold\n";
+            str += "Machete: " + MACHETE_COST + " gold\n";
+            str += "Horse: " + HORSE_COST + " gold\n";
+            str += "Boat: " + BOAT_COST + " gold\n";
+            str += "Boots: " + BOOTS_COST + " gold\n";
+            str += "Shovel: " + SHOVEL_COST + " gold\n";
+            str += "Sword: " + SWORD_COST + " gold\n";
+        }else {
+            str = "Water: " + WATER_COST + " gold\n";
+            str += "Rope: " + ROPE_COST + " gold\n";
+            str += "Machete: " + MACHETE_COST + " gold\n";
+            str += "Horse: " + HORSE_COST + " gold\n";
+            str += "Boat: " + BOAT_COST + " gold\n";
+            str += "Boots: " + BOOTS_COST + " gold\n";
+            str += "Shovel: " + SHOVEL_COST + " gold\n";
+        }
 
 
         return str;
@@ -104,7 +118,10 @@ public class Shop {
      */
     public void buyItem(String item) {
         int costOfItem = checkMarketPrice(item, true);
-        if (customer.buyItem(item, costOfItem)) {
+
+        if(TreasureHunter.getHunter().hasItemInKit("sword")&& !customer.hasItemInKit(item)){
+            customer.buyItem(item, 0);
+        }else if (customer.buyItem(item, costOfItem)) {
             System.out.println("Ye' got yerself a " + item + ". Come again soon.");
         } else {
             System.out.println("Hmm, either you don't have enough gold or you've already got one of those!");

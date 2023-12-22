@@ -12,7 +12,6 @@ public class Town {
     private String printMessage;
     private boolean toughTown;
     private String treasure = "";
-    private int i = 0;
     private static String[] treasures = new String[3];
     private boolean searched;
     private boolean dug;
@@ -166,13 +165,15 @@ public class Town {
         double noTroubleChance;
         if (toughTown && mode.equals("hard")) {
             noTroubleChance = 0.88;
-        } else if (!toughTown && mode.equals("easy")){
+        } else if (!toughTown && mode.equals("easy")) {
             noTroubleChance = 0.16;
-        }else {
+        } else {
             noTroubleChance = 0.33;
         }
 
-        if (Math.random() > noTroubleChance) {
+        if(TreasureHunter.secretMode() && hunter.hasItemInKit("sword")){
+            printMessage = "The brawler sees your sword, drops his wallet and runs";
+        }else if (Math.random() > noTroubleChance) {
             printMessage = "You couldn't find any trouble";
         } else {
             printMessage = "You want trouble, stranger! You got it!\n" + Colors.RED + "Oof! Umph! Ow!\n" + Colors.RESET;
